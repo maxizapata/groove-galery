@@ -1,4 +1,4 @@
-module groove-galery
+module groove-gallery
 
 go 1.19
 

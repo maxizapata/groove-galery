@@ -2,11 +2,10 @@ package controllers
 
 import (
 	"fmt"
-	"groove-galery/models"
+	"groove-gallery/models"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	//"github.com/maxizapata/groove-galery/models"
 )
 
 type CreateAlbumInput struct {

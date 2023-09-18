@@ -1,8 +1,8 @@
 package main
 
 import (
-	"groove-galery/controllers"
-	"groove-galery/models"
+	"groove-gallery/controllers"
+	"groove-gallery/models"
 
 	"github.com/gin-gonic/gin"
 )
