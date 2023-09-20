@@ -21,14 +21,15 @@ func ConnectDatabase() {
 	if len(dbSSLMode) == 0 {
 		dbSSLMode = "disable"
 	}
+	//dsn := "host=localhost user=gorm password=gorm dbname=gorm port=9920 sslmode=disable TimeZone=Asia/Shanghai"
 
-	dsn := "dbHost=" + dbHost +
-		" dbUser=" + dbUser +
-		" dbPassword=" + dbPass +
-		" db_dbname=" + dbName +
-		" dbPort=" + dbPort +
-		" dbSSLMode=" + dbSSLMode +
-		" dbTimezone=" + dbTimezone
+	dsn := "host=" + dbHost +
+		" user=" + dbUser +
+		" password=" + dbPass +
+		" dbname=" + dbName +
+		" port=" + dbPort +
+		" sslmode=" + dbSSLMode +
+		" TimeZone=" + dbTimezone
 
 	database, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 
