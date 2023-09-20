@@ -1,6 +1,8 @@
 package models
 
 import (
+	"os"
+
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
@@ -8,7 +10,25 @@ import (
 var DB *gorm.DB
 
 func ConnectDatabase() {
-	dsn := "host=localhost user=postgres password=arturo-123 dbname=groove port=54320 sslmode=disable TimeZone=America/Buenos_Aires"
+	dbHost := os.Getenv("dbHost")
+	dbUser := os.Getenv("dbUser")
+	dbPass := os.Getenv("dbPass")
+	dbName := os.Getenv("dbName")
+	dbPort := os.Getenv("dbPort")
+	dbSSLMode := os.Getenv("dbSSLMode")
+	dbTimezone := os.Getenv("dbTimezone")
+
+	if len(dbSSLMode) == 0 {
+		dbSSLMode = "disable"
+	}
+
+	dsn := "dbHost=" + dbHost +
+		" dbUser=" + dbUser +
+		" dbPassword=" + dbPass +
+		" db_dbname=" + dbName +
+		" dbPort=" + dbPort +
+		" dbSSLMode=" + dbSSLMode +
+		" dbTimezone=" + dbTimezone
 
 	database, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 

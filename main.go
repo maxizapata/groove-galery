@@ -3,6 +3,7 @@ package main
 import (
 	"groove-gallery/controllers"
 	"groove-gallery/models"
+	"os"
 
 	"github.com/gin-gonic/gin"
 )
@@ -21,5 +22,10 @@ func main() {
 	r.DELETE("/albums/:id", controllers.DeleteAlbum)
 
 	// Run the server
-	r.Run()
+	groovePort := os.Getenv("GROOVE_PORT")
+
+	if len(groovePort) == 0 {
+		groovePort = "8080"
+	}
+	r.Run(os.Getenv("GROOVE_PORT"))
 }
