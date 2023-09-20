@@ -6,20 +6,20 @@ services:
     image: maxizapata/groove-galery
     restart: unless-stopped
     environment:
-      - DB_HOST=db
-      - DB_USER=postgres
-      - DB_PASS=arturo-123
-      - DB_NAME=groove_galery
-      - DB_PORT=5432
+      - DB_HOST: db
+      - DB_USER: postgres
+      - DB_PASS: arturo-123
+      - DB_NAME: groove_galery
+      - DB_PORT: 5432
       # - DB_SSLMODE
-      - DB_TIMEZONE=America/Buenos_Aires
+      - DB_TIMEZONE: America/Buenos_Aires
   db:
     image: postgres:14.1-alpine
     restart: always
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=arturo-123
-      - POSTGRES_DB=groove_galery
+      - POSTGRES_USER: postgres
+      - POSTGRES_PASSWORD: arturo-123
+      - POSTGRES_DB: groove_galery
     ports:
       - '54320:5432'
     volumes: 
