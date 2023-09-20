@@ -22,10 +22,16 @@ func main() {
 	r.DELETE("/albums/:id", controllers.DeleteAlbum)
 
 	// Run the server
-	groovePort := os.Getenv("GROOVE_PORT")
+	var groovePort string
 
-	if len(groovePort) == 0 {
-		groovePort = "8080"
+	if len(os.Getenv("GROOVE_PORT")) == 0 {
+		groovePort = ":8080"
+	} else {
+		groovePort = ":" + os.Getenv("GROOVE_PORT")
 	}
-	r.Run(os.Getenv("GROOVE_PORT"))
+
+	err := r.Run(groovePort)
+	if err != nil {
+		panic("[ERROR] failed  to start Gin server due to " + err.Error())
+	}
 }
