@@ -10,13 +10,13 @@ import (
 var DB *gorm.DB
 
 func ConnectDatabase() {
-	dbHost := os.Getenv("dbHost")
-	dbUser := os.Getenv("dbUser")
-	dbPass := os.Getenv("dbPass")
-	dbName := os.Getenv("dbName")
-	dbPort := os.Getenv("dbPort")
-	dbSSLMode := os.Getenv("dbSSLMode")
-	dbTimezone := os.Getenv("dbTimezone")
+	dbHost := os.Getenv("DB_HOST")
+	dbUser := os.Getenv("DB_USER")
+	dbPass := os.Getenv("DB_PASS")
+	dbName := os.Getenv("DB_NAME")
+	dbPort := os.Getenv("DB_PORT")
+	dbSSLMode := os.Getenv("DB_SSLMODE")
+	dbTimezone := os.Getenv("DB_TIMEZONE")
 
 	if len(dbSSLMode) == 0 {
 		dbSSLMode = "disable"
