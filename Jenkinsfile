@@ -1,9 +1,19 @@
 pipeline {
     agent any
     stages {
-        stage('Welcome Step') {
+        stage('Build') {
             steps { 
-                echo 'Welcome to LambdaTest'
+                echo 'Building'
+            }
+        }
+        stage('Test') {
+            steps { 
+                echo 'Testing'
+            }
+        }
+        stage('Deploy') {
+            steps { 
+                echo 'Deploying'
             }
         }
     }
