@@ -10,10 +10,10 @@ pipeline {
                 script {
                     def result = sh(script: 'which java', returnStatus: true)
                     if (result == 0) {
-                        def location = sh(script: 'which ls', returnStdout: true).trim()
-                        echo "Location of 'ls' command: ${location}"
+                        def location = sh(script: 'which java', returnStdout: true).trim()
+                        echo "Location of 'java' command: ${location}"
                     } else {
-                        error "'ls' command not found"
+                        error "'java' command not found"
                     }
                 }
             }
