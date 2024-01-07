@@ -7,12 +7,14 @@ pipeline {
             steps { 
                 echo 'Building'
                 echo 'Building2'
-                def result = sh(script: 'which java', returnStatus: true)
-                if (result == 0) {
-                    def location = sh(script: 'which ls', returnStdout: true).trim()
-                    echo "Location of 'ls' command: ${location}"
-                } else {
-                    error "'ls' command not found"
+                script {
+                    def result = sh(script: 'which java', returnStatus: true)
+                    if (result == 0) {
+                        def location = sh(script: 'which ls', returnStdout: true).trim()
+                        echo "Location of 'ls' command: ${location}"
+                    } else {
+                        error "'ls' command not found"
+                    }
                 }
             }
         }
