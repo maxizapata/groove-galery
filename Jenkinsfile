@@ -7,6 +7,7 @@ pipeline {
             steps { 
                 echo 'Building'
                 echo 'Building2'
+                which java
             }
         }
         stage('Test') {
