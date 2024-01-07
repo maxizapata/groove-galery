@@ -8,10 +8,10 @@ pipeline {
                 echo 'Building'
                 echo 'Building2'
                 script {
-                    def result = sh(script: 'which java', returnStatus: true)
+                    def result = sh(script: 'ls /home/jenkins/', returnStatus: true)
                     if (result == 0) {
-                        def location = sh(script: 'which java', returnStdout: true).trim()
-                        echo "Location of 'java' command: ${location}"
+                        def home_jenkins = sh(script: 'ls /home/jenkins/', returnStdout: true).trim()
+                        echo "${home_jenkins}"
                     } else {
                         error "'java' command not found"
                     }
