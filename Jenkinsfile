@@ -21,6 +21,7 @@ pipeline {
         stage('Test') {
             steps { 
                 echo 'Testing'
+                sh 'go version'
             }
         }
         stage('Deploy') {
